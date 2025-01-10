@@ -4,7 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace MagicVilla_VillaAPI.Models
 {
     public class Villa
+
     {
+        public Villa()
+        {
+            CreatedDate = DateTime.Now;
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
