@@ -11,15 +11,10 @@ namespace MagicVilla_VillaAPI.Controllers
     [Route("api/UserAuth")]
     [ApiController]
     [ApiVersionNeutral]
-    public class UsersController : Controller
+    public class UsersController(IUserRepository userRepository) : Controller
     {
-        private readonly IUserRepository _userRepository;
-        protected APIResponse _response;
-        public UsersController(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-            _response = new APIResponse();
-        }
+        private readonly IUserRepository _userRepository = userRepository;
+        protected APIResponse _response = new();
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO model)

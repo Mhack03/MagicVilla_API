@@ -12,23 +12,15 @@ namespace MagicVilla_VillaAPI.Controllers.v2
     [Route("api/v{version:apiVersion}/VillaNumberAPI")]
     [ApiController]
     [ApiVersion("2.0")]
-    public class VillaNumberAPIController : ControllerBase
+    public class VillaNumberAPIController(IVillaNumberRepository dbVillaNumber, IMapper mapper, IVillaRepository dbVilla) : ControllerBase
     {
-        protected APIResponse _response;
-        private readonly IVillaNumberRepository _dbVillaNumber;
-        private readonly IVillaRepository _dbVilla;
-        private readonly IMapper _mapper;
-
-        public VillaNumberAPIController(IVillaNumberRepository dbVillaNumber, IMapper mapper, IVillaRepository dbVilla)
-        {
-            _dbVillaNumber = dbVillaNumber;
-            _mapper = mapper;
-            _response = new();
-            _dbVilla = dbVilla;
-        }
+        protected APIResponse _response = new();
+        private readonly IVillaNumberRepository _dbVillaNumber = dbVillaNumber;
+        private readonly IVillaRepository _dbVilla = dbVilla;
+        private readonly IMapper _mapper = mapper;
 
         [HttpGet("GetString")]
-        public IEnumerable<string> Get() => new string[] { "Mark Antony", "Web API Demo" };
+        public IEnumerable<string> Get() => ["Mark Antony", "Web API Demo"];
 
     }
 }
