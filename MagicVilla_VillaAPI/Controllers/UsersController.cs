@@ -1,4 +1,5 @@
-﻿using MagicVilla_VillaAPI.Models;
+﻿using Asp.Versioning;
+using MagicVilla_VillaAPI.Models;
 using MagicVilla_VillaAPI.Models.Dto;
 using MagicVilla_VillaAPI.Repository.IRepository;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -9,6 +10,7 @@ namespace MagicVilla_VillaAPI.Controllers
 {
     [Route("api/UserAuth")]
     [ApiController]
+    [ApiVersionNeutral]
     public class UsersController : Controller
     {
         private readonly IUserRepository _userRepository;
@@ -16,7 +18,7 @@ namespace MagicVilla_VillaAPI.Controllers
         public UsersController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            this._response = new APIResponse();
+            _response = new APIResponse();
         }
 
         [HttpPost("login")]
@@ -51,7 +53,7 @@ namespace MagicVilla_VillaAPI.Controllers
             var user = await _userRepository.Register(model);
             if (user == null)
             {
-                _response.StatusCode=HttpStatusCode.BadRequest;
+                _response.StatusCode = HttpStatusCode.BadRequest;
                 _response.IsSuccess = false;
                 _response.ErrorMessages.Add("Error while registering");
             }

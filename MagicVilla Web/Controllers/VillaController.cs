@@ -101,6 +101,7 @@ namespace MagicVilla_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteVilla(VillaDTO model)
         {
            
@@ -108,6 +109,7 @@ namespace MagicVilla_Web.Controllers
             if (response != null && response.IsSuccess)
             {
                 TempData["success"] = "Villa Deleted successfully";
+
                 return RedirectToAction(nameof(IndexVilla));
             }
             TempData["error"] = "Error encountered";
