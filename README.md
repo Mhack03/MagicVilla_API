@@ -1,6 +1,6 @@
 # RESTful Web API Project
 
-This project is based on the Udemy course [Learn to build a RESTful API and consume it in a Blazor (WebAssembly and Server) Client Application and deploy to Azure]([https://www.udemy.com/course/restful-web-api-the-complete-guide-net/](https://www.udemy.com/course/end-to-end-aspnet-core-31-api-and-blazor-development/learn/lecture/29921894#overview)) by Trevoir Williams. The course provided a comprehensive guide on building RESTful Web APIs using .NET 7.
+This project is based on the Udemy course [Learn to build a RESTful API and consume it in a Blazor (WebAssembly and Server) Client Application and deploy to Azure](https://www.udemy.com/course/end-to-end-aspnet-core-31-api-and-blazor-development/learn/lecture/29921894#overview) by Trevoir Williams. The course provided a comprehensive guide on building RESTful Web APIs using .NET 7.
 
 ## Course Overview
 
