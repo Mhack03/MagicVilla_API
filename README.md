@@ -1,17 +1,17 @@
 # RESTful Web API Project
 
-This project is based on the Udemy course [Learn to build a RESTful API and consume it in a Blazor (WebAssembly and Server) Client Application and deploy to Azure](https://www.udemy.com/course/end-to-end-aspnet-core-31-api-and-blazor-development/learn/lecture/29921894#overview) by Trevoir Williams. The course provided a comprehensive guide on building RESTful Web APIs using .NET 7.
+This project is based on the Udemy course [Build RESTful web API (C#) with Authentication and learn how to consume them in a real-world application (.NET 7 API)](https://www.udemy.com/course/restful-api-with-asp-dot-net-core-web-api/learn/lecture/33365786?start=2#overview) by Bhrugen Patel. The course provided a comprehensive guide on building RESTful Web APIs using .NET 7.
 
 ## Course Overview
 
-- **Instructor**: Trevoir Williams
+- **Instructor**: Bhrugen Patel
 - **Platform**: Udemy
-- **Title**: Learn to build a RESTful API and consume it in a Blazor (WebAssembly and Server) Client Application and deploy to Azure
+- **Title**: Build RESTful web API (C#) with Authentication and learn how to consume them in a real-world application (.NET 7 API)
 
 ## Purpose
 
 - **Learning**: This project serves as a practical implementation of the concepts and techniques taught in the course.
-- **Skill Development**: Enhance my skills in building and managing RESTful APIs using ASP.NET Core 6 / 7 and consume it in a modern Blazor Single Page Application.
+- **Skill Development**: Enhance my skills in building and managing RESTful APIs using ASP.NET Core 6 / 7.
 - **Portfolio**: Showcase my ability to apply the knowledge gained from the course in a real-world project.
 
 ## Project Features
@@ -22,9 +22,6 @@ This project is based on the Udemy course [Learn to build a RESTful API and cons
 - **Automapper**: Implementation of Automapper for object-to-object mapping.
 - **Validation and Error Handling**: Proper validation and error handling mechanisms.
 - **Swagger Integration**: API documentation using Swagger.
-- **Blazor Development**: Build a Single Page Application client-side UI using Blazor Server AND Blazor WebAssembly.
-- **JWT (JSON Web Tokens)**: Understand user Authentication and Blazor Application User Authentication State.
-- **Microsoft Azure Cloud**: Enlist the use of Azure SQL for the Database to support API and Deploy to Azure Cloud.
 
 ## Disclaimer
 
