@@ -13,7 +13,7 @@ namespace MagicVilla_Web.Services
             : base(clientFactory)
         {
             _clientFactory = clientFactory;
-            villaUrl = configuration.GetValue<string>("ServiceUrls:VillaAPI");
+            villaUrl = configuration.GetValue<string>("ServiceUrls:Villa");
         }
 
 

@@ -9,7 +9,7 @@ using System.Net;
 
 namespace MagicVilla_VillaAPI.Controllers.v1
 {
-    [Route("api/v{version:apiVersion}/VillaNumberAPI")]
+    [Route("api/v{version:apiVersion}/VillaNumber")]
     [ApiController]
     [ApiVersion("1.0")]
     public class VillaNumberAPIController(IVillaNumberRepository dbVillaNumber, IMapper mapper, IVillaRepository dbVilla) : ControllerBase
@@ -19,7 +19,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
         private readonly IVillaRepository _dbVilla = dbVilla;
         private readonly IMapper _mapper = mapper;
 
-        [HttpGet]
+        [HttpGet("get-villa-number")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<APIResponse>> GetVillaNumber()
         {
@@ -39,7 +39,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             return Ok(_response);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("get-villa-number/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -78,7 +78,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
 
 
 
-        [HttpPost(Name = "GetVillaNumber")]
+        [HttpPost("create-villa-number", Name = "GetVillaNumber")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -120,7 +120,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             return _response;
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("delete-villa-number/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -158,7 +158,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             return _response;
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("update-villa-number/{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<APIResponse>> UpdateVilla(int id, [FromBody] VillaNumberUpdateDTO updateDTO)
@@ -193,7 +193,7 @@ namespace MagicVilla_VillaAPI.Controllers.v1
             return _response;
         }
 
-        [HttpPatch("{id:int}")]
+        [HttpPatch("update-partial/{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<APIResponse>> UpdatePartialVilla(int id, JsonPatchDocument<VillaNumberUpdateDTO> patchDTO)

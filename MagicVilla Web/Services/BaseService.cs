@@ -31,22 +31,13 @@ namespace MagicVilla_Web.Services
                     message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data),
                         Encoding.UTF8, "application/json");
                 }
-                switch (apiRequest.ApiType)
+                message.Method = apiRequest.ApiType switch
                 {
-                    case SD.ApiType.POST:
-                        message.Method = HttpMethod.Post;
-                        break;
-                    case SD.ApiType.PUT:
-                        message.Method = HttpMethod.Put;
-                        break;
-                    case SD.ApiType.DELETE:
-                        message.Method = HttpMethod.Delete;
-                        break;
-                    default:
-                        message.Method = HttpMethod.Get;
-                        break;
-                }
-
+                    SD.ApiType.POST => HttpMethod.Post,
+                    SD.ApiType.PUT => HttpMethod.Put,
+                    SD.ApiType.DELETE => HttpMethod.Delete,
+                    _ => HttpMethod.Get,
+                };
                 HttpResponseMessage apiResponse = null;
 
                 if (!string.IsNullOrEmpty(apiRequest.Token))
@@ -60,7 +51,7 @@ namespace MagicVilla_Web.Services
                 try
                 {
                     APIResponse ApiResponse = JsonConvert.DeserializeObject<APIResponse>(apiContent);
-                    if(apiResponse != null && (apiResponse.StatusCode==System.Net.HttpStatusCode.BadRequest
+                    if (apiResponse is not null && (apiResponse.StatusCode == System.Net.HttpStatusCode.BadRequest
                         || apiResponse.StatusCode==System.Net.HttpStatusCode.NotFound))
                     {
                         ApiResponse.StatusCode = System.Net.HttpStatusCode.BadRequest;
@@ -82,7 +73,7 @@ namespace MagicVilla_Web.Services
             {
                 var dto = new APIResponse
                 {
-                    ErrorMessages = new List<string>() { Convert.ToString(ex.Message) },
+                    ErrorMessages = [Convert.ToString(ex.Message)],
                     IsSuccess = false
                 };
                 var res = JsonConvert.SerializeObject(dto);

@@ -13,7 +13,7 @@ namespace MagicVilla_Web.Services
             : base(clientFactory)
         {
             _clientFactory = clientFactory;
-            villaUrl = configuration.GetValue<string>("ServiceUrls:VillaAPI");
+            villaUrl = configuration.GetValue<string>("ServiceUrls:Villa");
         }
         public Task<T> CreateAsync<T>(VillaCreateDTO dto, string token)
         {
@@ -21,7 +21,7 @@ namespace MagicVilla_Web.Services
             {
                 ApiType = SD.ApiType.POST,
                 Data = dto,
-                Url = villaUrl + "/api/v1/villaAPI",
+                Url = villaUrl + "/api/v1/villa/create-villa",
                 Token = token
             });
         }
@@ -31,7 +31,7 @@ namespace MagicVilla_Web.Services
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.DELETE,
-                Url = villaUrl + "/api/v1/villaAPI/" + id,
+                Url = villaUrl + "/api/v1/villa/delete-villa" + id,
                 Token = token
             });
         }
@@ -41,7 +41,7 @@ namespace MagicVilla_Web.Services
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.GET,
-                Url = villaUrl + "/api/v1/villaAPI",
+                Url = villaUrl + "/api/v1/villa/get-villas",
                 Token = token
             });
         }
@@ -51,7 +51,7 @@ namespace MagicVilla_Web.Services
             return SendAsync<T>(new APIRequest()
             {
                 ApiType = SD.ApiType.GET,
-                Url = villaUrl + "/api/v1/villaAPI/" + id,
+                Url = villaUrl + "/api/v1/villa/get-villa" + id,
                 Token = token
             });
         }
@@ -62,7 +62,7 @@ namespace MagicVilla_Web.Services
             {
                 ApiType = SD.ApiType.PUT,
                 Data = dto,
-                Url = villaUrl + "/api/v1/villaAPI/" + dto.Id,
+                Url = villaUrl + "/api/v1/villa/update-villa" + dto.Id,
                 Token = token
             });
         }
