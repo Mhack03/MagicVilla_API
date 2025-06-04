@@ -8,7 +8,7 @@ using System.Net;
 
 namespace MagicVilla_VillaAPI.Controllers
 {
-    [Route("api/UserAuth")]
+    [Route("api/Users")]
     [ApiController]
     [ApiVersionNeutral]
     public class UsersController(IUserRepository userRepository) : Controller
@@ -16,7 +16,7 @@ namespace MagicVilla_VillaAPI.Controllers
         private readonly IUserRepository _userRepository = userRepository;
         protected APIResponse _response = new();
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO model)
         {
             var loginResponse = await _userRepository.Login(model);

@@ -22,7 +22,7 @@ namespace MagicVilla_VillaAPI.Repository
             if (existingEntity != null)
             {
                 entity.CreatedDate = existingEntity.CreatedDate;
-                entity.UpdatedDate = DateTime.Now;
+                entity.UpdatedDate = DateTime.UtcNow;
                 _db.Villas.Update(entity);
                 await _db.SaveChangesAsync();
             }
